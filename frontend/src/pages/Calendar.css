@@ -1,0 +1,362 @@
+.calendar-widget {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Live Clock */
+.live-clock {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1565C0 0%, #0D47A1 100%);
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  color: white;
+  box-shadow: 0 4px 15px rgba(21, 101, 192, 0.3);
+}
+
+.clock-time {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-family: 'Courier New', monospace;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.clock-date {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+  opacity: 0.95;
+}
+
+.clock-date-hindi {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+/* Calendar Header */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.calendar-nav {
+  background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #1565C0;
+  font-weight: bold;
+}
+
+.calendar-nav:hover {
+  background: linear-gradient(135deg, #1565C0 0%, #0D47A1 100%);
+  color: white;
+  transform: scale(1.1);
+}
+
+.calendar-title {
+  text-align: center;
+  flex: 1;
+}
+
+.month-year {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #1565C0;
+}
+
+.month-year-hindi {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+.today-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: all 0.3s;
+  box-shadow: 0 2px 10px rgba(255, 152, 0, 0.3);
+}
+
+.today-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+}
+
+/* Calendar Grid */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.calendar-day-header {
+  text-align: center;
+  padding: 0.75rem 0;
+  font-weight: 600;
+  color: #1565C0;
+  font-size: 0.9rem;
+}
+
+.day-hindi {
+  font-size: 0.75rem;
+  color: #999;
+  margin-top: 0.25rem;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  background: #F9F9F9;
+  border: 2px solid transparent;
+}
+
+.calendar-day:not(.empty):hover {
+  background: #E3F2FD;
+  transform: scale(1.05);
+  border-color: #1565C0;
+}
+
+.calendar-day.empty {
+  cursor: default;
+  background: transparent;
+}
+
+.calendar-day.today {
+  background: linear-gradient(135deg, #1565C0 0%, #0D47A1 100%);
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(21, 101, 192, 0.3);
+}
+
+.calendar-day.today:hover {
+  transform: scale(1.1);
+}
+
+.calendar-day.selected {
+  background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+}
+
+.calendar-day.has-event {
+  border: 2px solid #4CAF50;
+}
+
+.day-number {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.event-dot {
+  width: 6px;
+  height: 6px;
+  background: #4CAF50;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 6px;
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+.calendar-day.today .event-dot,
+.calendar-day.selected .event-dot {
+  background: white;
+}
+
+@keyframes dotPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+/* Selected Date Info */
+.selected-date-info {
+  background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #4CAF50;
+}
+
+.selected-date-info h4 {
+  color: #2E7D32;
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+}
+
+.event-detail {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: white;
+  border-radius: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.event-detail.deadline {
+  border-left: 4px solid #D32F2F;
+}
+
+.event-detail.event {
+  border-left: 4px solid #1565C0;
+}
+
+.event-detail.reminder {
+  border-left: 4px solid #FF9800;
+}
+
+.event-icon {
+  font-size: 1.5rem;
+}
+
+.no-events {
+  color: #666;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Upcoming Events */
+.upcoming-events {
+  background: #FFF3E0;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #FF9800;
+}
+
+.upcoming-events h4 {
+  color: #F57C00;
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+}
+
+.event-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  transition: all 0.3s;
+}
+
+.event-item:last-child {
+  margin-bottom: 0;
+}
+
+.event-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-date {
+  background: linear-gradient(135deg, #1565C0 0%, #0D47A1 100%);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  min-width: 60px;
+  text-align: center;
+}
+
+.event-item.deadline .event-date {
+  background: linear-gradient(135deg, #D32F2F 0%, #C62828 100%);
+}
+
+.event-item.event .event-date {
+  background: linear-gradient(135deg, #1565C0 0%, #0D47A1 100%);
+}
+
+.event-item.reminder .event-date {
+  background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+}
+
+.event-title {
+  flex: 1;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .calendar-widget {
+    padding: 1.5rem;
+  }
+
+  .clock-time {
+    font-size: 2.5rem;
+  }
+
+  .calendar-grid {
+    gap: 0.25rem;
+  }
+
+  .calendar-day {
+    border-radius: 8px;
+  }
+
+  .day-number {
+    font-size: 1rem;
+  }
+
+  .calendar-day-header {
+    font-size: 0.8rem;
+    padding: 0.5rem 0;
+  }
+
+  .day-hindi {
+    font-size: 0.7rem;
+  }
+}
+
+/* Smooth Animations */
+.calendar-day,
+.event-item,
+.today-btn,
+.calendar-nav {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

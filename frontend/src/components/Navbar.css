@@ -1,0 +1,179 @@
+/* Clean Professional Navbar */
+
+.navbar-clean {
+  background: #0F4C81;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container-clean {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 70px;
+}
+
+/* Logo */
+.navbar-logo-clean {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.logo-hindi {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.logo-english {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* Navigation Menu */
+.navbar-menu-clean {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-item-clean {
+  color: white;
+  text-decoration: none;
+  padding: 0.65rem 1.2rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  transition: all 0.3s;
+  background: transparent;
+}
+
+.nav-item-clean:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.nav-highlight {
+  background: #2E7D32;
+}
+
+.nav-highlight:hover {
+  background: #1B5E20;
+}
+
+.nav-admin {
+  background: #E65100;
+}
+
+.nav-admin:hover {
+  background: #D84315;
+}
+
+/* Buttons */
+.nav-btn-login,
+.nav-btn-register,
+.nav-btn-logout {
+  padding: 0.65rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-btn-login {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.nav-btn-login:hover {
+  background: white;
+  color: #0F4C81;
+}
+
+.nav-btn-register {
+  background: #2E7D32;
+  color: white;
+}
+
+.nav-btn-register:hover {
+  background: #1B5E20;
+}
+
+.nav-btn-logout {
+  background: #C62828;
+  color: white;
+}
+
+.nav-btn-logout:hover {
+  background: #B71C1C;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .navbar-menu-clean {
+    gap: 0.25rem;
+  }
+  
+  .nav-item-clean {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar-container-clean {
+    flex-direction: column;
+    padding: 1rem 2rem;
+  }
+  
+  .navbar-menu-clean {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  
+  .logo-hindi {
+    text-align: center;
+  }
+  
+  .logo-english {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-item-clean,
+  .nav-btn-login,
+  .nav-btn-register,
+  .nav-btn-logout {
+    font-size: 0.85rem;
+    padding: 0.55rem 0.9rem;
+  }
+  
+  .logo-hindi {
+    font-size: 1.1rem;
+  }
+  
+  .logo-english {
+    font-size: 0.75rem;
+  }
+}
